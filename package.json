@@ -45,6 +45,10 @@
   "devDependencies": {
     "@types/lodash-es": "4.17.0",
     "@types/prop-types": "15.5.2",
-    "@types/react-native": "0.49.5"
+    "@types/react": "15.6.19",
+    "@types/react-native": "0.49.5",
+    "file-directives": "1.4.6",
+    "tslint": "5.8.0",
+    "typescript": "2.7.1"
   }
 }

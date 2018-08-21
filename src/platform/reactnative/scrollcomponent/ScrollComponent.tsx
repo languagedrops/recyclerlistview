@@ -5,6 +5,7 @@ import {
     NativeSyntheticEvent,
     ScrollView,
     View,
+    I18nManager,
 } from "react-native";
 import BaseScrollComponent, { ScrollComponentProps } from "../../../core/scrollcomponent/BaseScrollComponent";
 import TSCast from "../../../utils/TSCast";
@@ -71,7 +72,9 @@ export default class ScrollComponent extends BaseScrollComponent {
 
     private _onScroll(event?: NativeSyntheticEvent<NativeScrollEvent>): void {
         if (event) {
-            this.props.onScroll(event.nativeEvent.contentOffset.x, event.nativeEvent.contentOffset.y, event);
+            const isRTL = I18nManager.isRTL;
+            const offsetX = isRTL ? this.props.contentWidth - event.nativeEvent.contentOffset.x - this._width : event.nativeEvent.contentOffset.x;
+            this.props.onScroll(offsetX, event.nativeEvent.contentOffset.y, event);
         }
     }
 
